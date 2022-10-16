@@ -2,7 +2,6 @@ const fetch = require("node-fetch");
 let url = "https://pool.aterx.com/1/blocks.all.really";
 var data;
 var webhook_url = process.env.webhook_url;
-var blockstatus = process.env.blockstatus;
 var oldblockhash;
 
 setInterval(function () {
