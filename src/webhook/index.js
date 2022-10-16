@@ -94,4 +94,4 @@ setInterval(function () {
       console.log("No new block found");
     }
   })();
-}, 300);
+}, 30000);
