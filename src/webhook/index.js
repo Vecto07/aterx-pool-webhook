@@ -34,6 +34,10 @@ setInterval(function () {
           thumbnail: {
             url: "https://www.aterx.com/64x64-aterx-logo.png"
           },
+          "footer": {
+             "text": `Data provided by Pool.AteRX.com`,
+             "icon_url": `https://www.aterx.com/64x64-aterx-logo.png`
+          },
           fields: [
             {
               name: "Height:",
@@ -60,7 +64,8 @@ setInterval(function () {
               value: breward,
               inline: false
             }
-          ]
+          ],
+          "url": `https://pool.aterx.com/1/blockui.html?block=` + bheight
         }
       ]
     };
