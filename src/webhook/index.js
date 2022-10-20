@@ -1,7 +1,7 @@
 const fetch = require("node-fetch"); //npm package to get the data from pool.aterx.com, and send the message to Discord
 let url = "https://pool.aterx.com/1/blocks.all.really"; //url of all blocks the pool has found
 var data; //parsed data from pool.aterx.com
-var webhook_url = url_here; //self explanatory
+var webhook_url = "url_here"; //self explanatory
 var oldblockhash; //hash of the block that was previously send to Discord
 
 setInterval(function () { //function that runs every 30 seconds
