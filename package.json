@@ -2,13 +2,11 @@
   "name": "api",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "src/webhook/index.js",
   "scripts": {
-    "start": "node src/index.js localhost 8080"
+    "start": "node --experimental-fetch src/webhook/index.js localhost 8080"
   },
-  "dependencies": {
-    "node-fetch": "^2.6.7"
-  },
+  "dependencies": {},
   "devDependencies": {
     "nodemon": "^2.0.20"
   },
