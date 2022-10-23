@@ -1,3 +1,4 @@
+const fs = require("fs");
 let url = "https://pool.aterx.com/1/blocks.all.really"; //url of all blocks the pool has found
 var data; //parsed data from pool.aterx.com
 var webhook_url = "url_here"; //self explanatory
@@ -18,7 +19,6 @@ setInterval(function () { //function that runs every 30 seconds
     var bstatus = json[0]["status"]; //get status value of latest block
     var bdifficulty = json[0]["difficulty"]; //get difficulty value of latest block
     var breward = "0,0" + json[0]["reward"]; //get reward value of latest block
-    console.log("old1:" + oldblockhash); //log the old blockhash to console
 
     var params = {
       username: "NEW BLOCK", //set name of Discord Webhook
@@ -67,6 +67,13 @@ setInterval(function () { //function that runs every 30 seconds
       ]
     };
 
+    try { //check hash.txt for oldblockhash and save it to variable                                                   
+      oldblockhash = fs.readFileSync("./src/var/hash.txt", "utf8");
+      console.log("old1: " + oldblockhash);
+    } catch (err) {
+      console.error(err);
+    }
+    
     if (oldblockhash !== bhash) { //check if the latest block hasnt been send before
       console.log("Height: " + bheight); //log height value of latest block to console
       console.log("Hash: " + bhash); //log hash value of latest block to console
@@ -74,6 +81,22 @@ setInterval(function () { //function that runs every 30 seconds
       console.log("Difficulty: " + bdifficulty); //log difficulty value of latest block to console
       console.log("Reward: " + breward); //log reward value of latest block to console
       oldblockhash = bhash; //update the old block hash to the last block sent
+
+      try { //check if directory exists, and if not make it
+        if (!fs.existsSync("src/var")) {
+          fs.mkdirSync("src/var");
+        }
+      } catch (err) {
+        console.error(err);
+      }
+
+      try { //save latest blockhash to hash.txt
+        fs.writeFileSync("./src/var/hash.txt", bhash);
+        // file written successfully
+      } catch (err) {
+        console.error(err);
+      }
+
       console.log("old2:" + oldblockhash); //log the hash of the last block sent
       fetch( //send the previously configured Webhook 
         webhook_url,
