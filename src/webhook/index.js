@@ -32,7 +32,7 @@ setInterval(function () { //function that runs every 30 seconds
             url: "https://www.aterx.com/64x64-aterx-logo.png"
           },
           "footer": {
-             "text": `Data provided by Pool.AteRX.com`,
+             "text": `Data provided by Pool.AteRX.com - Made by Vecto#6472`,
              "icon_url": `https://www.aterx.com/64x64-aterx-logo.png`
           },
           fields: [
