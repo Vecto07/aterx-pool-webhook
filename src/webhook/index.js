@@ -62,7 +62,7 @@ setInterval(function () { //function that runs every 30 seconds
               inline: false
             }
           ],
-          "url": `https://pool.aterx.com/"
+          "url": "https://pool.aterx.com/"
         }
       ]
     };
