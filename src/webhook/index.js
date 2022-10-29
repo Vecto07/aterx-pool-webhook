@@ -37,8 +37,8 @@ setInterval(function () { //function that runs every 30 seconds
           },
           fields: [
             {
-              name: "[Height:](`https://pool.aterx.com/1/blockui.html?block=`" + bheight + ")",
-              value: bheight,
+              name: "Height:",
+              value: "[" + bheight + "](https://pool.aterx.com/1/blockui.html?block=" + bheight + ")",
               inline: false
             },
             {
